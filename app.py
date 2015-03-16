@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # ---- Flask Hello World ---- #
 
 # import the Flask class from the flask module
@@ -6,13 +7,16 @@ from flask import Flask
 # create the application object
 app = Flask(__name__)
 
+# /!\ reloader ne doit jamais être activé sur un site en prod /!\
+app.config["DEBUG"] = True
+
 # use decorators to link the functions to a url
 @app.route("/")
 @app.route("/hello")
 
 # define the view using a function, which returns a string
 def hello_world():
-    return "Hello World!"
+    return "Hello WHAT??!"
     
 # dynamic route
 @app.route("/test/<search_query>")
